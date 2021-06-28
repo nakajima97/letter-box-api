@@ -1,0 +1,136 @@
+openapi: 3.1.0
+info:
+  title: LetterBox
+  version: '1.0'
+  description: LetterBoxで用いるAPIの仕様書
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /stores:
+    get:
+      summary: Your GET endpoint
+      tags:
+        - stores
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+      operationId: get-store
+    parameters: []
+  '/stores/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: お店のIDを指定する
+    get:
+      summary: Your GET endpoint
+      tags:
+        - stores
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+      operationId: get-store-id
+  '/employees/{storeId}':
+    get:
+      summary: Your GET endpoint
+      tags:
+        - employees
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  employees:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+      operationId: 'get-employees-storeId]'
+      description: お店に所属する従業員の一覧を返す
+    parameters:
+      - schema:
+          type: string
+        name: storeId
+        in: path
+        required: true
+        description: お店のIDを指定する
+  /messages:
+    post:
+      summary: ''
+      operationId: post-messages
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: store_id
+          description: 店舗ID
+        - schema:
+            type: string
+          in: query
+          name: employee_id
+          description: 従業員ID
+        - schema:
+            type: string
+          in: query
+          name: message
+          description: メッセージ
+      tags:
+        - messages
+components:
+  schemas: {}
+tags:
+  - name: employees
+  - name: messages
+  - name: stores
