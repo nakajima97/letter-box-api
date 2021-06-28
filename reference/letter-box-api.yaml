@@ -6,35 +6,14 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  /stores:
-    get:
-      summary: Your GET endpoint
-      tags:
-        - stores
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    name:
-                      type: string
-      operationId: get-store
-    parameters: []
-  '/stores/{id}':
+  '/stores/{keyword}':
     parameters:
       - schema:
           type: string
-        name: id
+        name: keyword
         in: path
         required: true
-        description: お店のIDを指定する
+        description: 店舗検索のキーワード
     get:
       summary: Your GET endpoint
       tags:
