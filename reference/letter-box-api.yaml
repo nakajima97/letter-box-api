@@ -1,17 +1,18 @@
-openapi: 3.1.0
+openapi: 3.0.0
 info:
   title: LetterBox
   version: '1.0'
   description: LetterBoxで用いるAPIの仕様書
 servers:
-  - url: 'http://localhost:3000/v1'
+  - url: 'http://localhost:3000'
 paths:
-  '/stores/{keyword}':
+  '/api/v1/stores/search':
     parameters:
       - schema:
           type: string
+          example: aaa
         name: keyword
-        in: path
+        in: query
         required: true
         description: 店舗検索のキーワード
     get:
@@ -24,14 +25,23 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                    name:
-                      type: string
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                        name:
+                          type: string
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - id: 1
+                        name: aaa
         '400':
           description: Bad Request
           content:
@@ -114,6 +124,7 @@ paths:
 components:
   schemas: {}
   securitySchemes: {}
+  responses: {}
 tags:
   - name: employees
   - name: messages
