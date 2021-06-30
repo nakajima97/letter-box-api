@@ -6,7 +6,7 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  '/api/v1/stores/search':
+  /api/v1/stores/search:
     parameters:
       - schema:
           type: string
@@ -53,7 +53,7 @@ paths:
                     type: string
       operationId: get-store-id
       description: 店舗を検索する
-  '/api/v1/employees/{storeId}':
+  /api/v1/employees/search:
     get:
       summary: Your GET endpoint
       tags:
@@ -92,13 +92,15 @@ paths:
                     message: no data
       operationId: 'get-employees-storeId]'
       description: お店に所属する従業員の一覧を返す
-    parameters:
-      - schema:
-          type: string
-        name: storeId
-        in: path
-        required: true
-        description: お店のIDを指定する
+      parameters:
+        - schema:
+            type: string
+            example: '1'
+          in: query
+          name: store_id
+          description: store_idを指定する
+          required: true
+    parameters: []
   /apiv/v1/messages:
     post:
       summary: ''
