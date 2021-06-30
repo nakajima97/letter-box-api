@@ -6,7 +6,7 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  '/api/v1/stores/search':
+  /api/v1/stores/search:
     parameters:
       - schema:
           type: string
@@ -53,7 +53,7 @@ paths:
                     type: string
       operationId: get-store-id
       description: 店舗を検索する
-  '/employees/{storeId}':
+  '/api/v1/employees/{storeId}':
     get:
       summary: Your GET endpoint
       tags:
@@ -95,7 +95,7 @@ paths:
         in: path
         required: true
         description: お店のIDを指定する
-  /messages:
+  /apiv/v1/messages:
     post:
       summary: ''
       operationId: post-messages
@@ -121,6 +121,7 @@ paths:
       tags:
         - messages
       description: メッセージを投稿する
+    parameters: []
 components:
   schemas: {}
   securitySchemes: {}
