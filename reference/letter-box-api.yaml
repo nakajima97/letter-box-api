@@ -6,7 +6,7 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  /api/v1/stores/search:
+  '/api/v1/stores/search':
     parameters:
       - schema:
           type: string
@@ -86,6 +86,10 @@ paths:
                 properties:
                   message:
                     type: string
+              examples:
+                example-1:
+                  value:
+                    message: no data
       operationId: 'get-employees-storeId]'
       description: お店に所属する従業員の一覧を返す
     parameters:
