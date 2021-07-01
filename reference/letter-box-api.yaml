@@ -101,13 +101,24 @@ paths:
           description: store_idを指定する
           required: true
     parameters: []
-  /apiv/v1/messages:
+  /api/v1/messages:
     post:
       summary: ''
       operationId: post-messages
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    message: success
       parameters:
         - schema:
             type: string
