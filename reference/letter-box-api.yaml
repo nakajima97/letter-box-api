@@ -27,6 +27,8 @@ paths:
               schema:
                 type: object
                 properties:
+                  message:
+                    type: string
                   data:
                     type: array
                     items:
@@ -37,11 +39,14 @@ paths:
                         name:
                           type: string
               examples:
-                example-1:
+                success:
                   value:
                     data:
                       - id: 1
                         name: aaa
+                no data:
+                  value:
+                    message: No data
         '400':
           description: Bad Request
           content:
