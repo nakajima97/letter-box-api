@@ -35,7 +35,7 @@ paths:
                       type: object
                       properties:
                         id:
-                          type: number
+                          type: integer
                         name:
                           type: string
               examples:
@@ -141,12 +141,12 @@ paths:
                     message: failure
       parameters:
         - schema:
-            type: string
+            type: integer
           in: query
           name: store_id
           description: 店舗ID
         - schema:
-            type: string
+            type: integer
           in: query
           name: employee_id
           description: 従業員ID
