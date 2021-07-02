@@ -72,16 +72,17 @@ paths:
                 type: object
                 properties:
                   id:
-                    type: string
+                    type: integer
                   employees:
                     type: array
                     items:
                       type: object
                       properties:
                         id:
-                          type: string
+                          type: integer
                         name:
                           type: string
+              examples: {}
         '400':
           description: Bad Request
           content:
@@ -99,8 +100,8 @@ paths:
       description: お店に所属する従業員の一覧を返す
       parameters:
         - schema:
-            type: string
-            example: '1'
+            type: integer
+            example: 1
           in: query
           name: store_id
           description: store_idを指定する
