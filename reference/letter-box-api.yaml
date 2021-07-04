@@ -6,15 +6,39 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
+  /api/v1/stores:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+      operationId: get-api-v1-stores
+      parameters:
+        - schema:
+            type: integer
+            example: 50
+            minimum: 0
+            maximum: 100
+          in: query
+          name: count
+          description: 件数を指定する
+      description: 店舗一覧を返すエンドポイント
   /api/v1/stores/search:
-    parameters:
-      - schema:
-          type: string
-          example: aaa
-        name: keyword
-        in: query
-        required: true
-        description: 店舗検索のキーワード
     get:
       summary: Your GET endpoint
       tags:
@@ -39,12 +63,15 @@ paths:
                         name:
                           type: string
               examples:
-                success:
-                  value:
-                    f: null
                 no data:
                   value:
                     message: No data
+                sample:
+                  value:
+                    message: success
+                    data:
+                      - id: 1
+                        name: sample
         '400':
           description: Bad Request
           content:
@@ -56,6 +83,14 @@ paths:
                     type: string
       operationId: get-store-id
       description: 店舗を検索する
+      parameters:
+        - schema:
+            type: string
+            example: sample
+          in: query
+          name: keyword
+          required: true
+          description: 店舗検索の際に利用するキーワード
   /api/v1/employees/search:
     get:
       summary: Your GET endpoint
@@ -166,38 +201,6 @@ paths:
         - messages
       description: メッセージを投稿する
     parameters: []
-  /api/v1/stores:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  data:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: integer
-                        name:
-                          type: string
-      operationId: get-api-v1-stores
-      parameters:
-        - schema:
-            type: integer
-            example: 50
-            minimum: 0
-            maximum: 100
-          in: query
-          name: count
-          description: 件数を指定する
-      description: 店舗一覧を返すエンドポイント
 components:
   schemas: {}
   securitySchemes: {}
