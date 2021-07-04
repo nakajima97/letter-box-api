@@ -41,9 +41,7 @@ paths:
               examples:
                 success:
                   value:
-                    data:
-                      - id: 1
-                        name: aaa
+                    f: null
                 no data:
                   value:
                     message: No data
@@ -71,7 +69,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  id:
+                  store_id:
                     type: integer
                   employees:
                     type: array
@@ -80,9 +78,18 @@ paths:
                       properties:
                         id:
                           type: integer
-                        name:
+                        first_name:
                           type: string
-              examples: {}
+                        last_name:
+                          type: string
+              examples:
+                example-1:
+                  value:
+                    store_id: 0
+                    employees:
+                      - id: 0
+                        first_name: string
+                        last_name: string
         '400':
           description: Bad Request
           content:
@@ -159,6 +166,38 @@ paths:
         - messages
       description: メッセージを投稿する
     parameters: []
+  /api/v1/stores:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+      operationId: get-api-v1-stores
+      parameters:
+        - schema:
+            type: integer
+            example: 50
+            minimum: 0
+            maximum: 100
+          in: query
+          name: count
+          description: 件数を指定する
+      description: 店舗一覧を返すエンドポイント
 components:
   schemas: {}
   securitySchemes: {}
