@@ -16,7 +16,7 @@ https://github.com/yudai-nakajima/letter-box-frontend-client
 ### 管理画面フロントエンド
 
 従業員が感謝を確認するための画面
-※本リポジトリ
+https://github.com/yudai-nakajima/letter-box-frontend-client
 
 ### バックエンド
 
@@ -25,8 +25,7 @@ Letter Box のバックエンド
 https://github.com/yudai-nakajima/letter-box-backend
 
 ### API 仕様書
-
-https://github.com/yudai-nakajima/letter-box-api
+※本リポジトリ
 
 # 作成目的
 店員に対して感謝を気軽に伝える手段を提供するアプリを開発したいと思ったため
