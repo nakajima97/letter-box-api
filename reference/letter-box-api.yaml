@@ -27,6 +27,7 @@ paths:
                           type: integer
                         name:
                           type: string
+              examples: {}
       operationId: get-api-v1-stores
       parameters:
         - schema:
@@ -91,6 +92,27 @@ paths:
           name: keyword
           required: true
           description: 店舗検索の際に利用するキーワード
+  /api/v1/stores/login:
+    post:
+      summary: ''
+      operationId: post-api-v1-stores-login
+      responses:
+        '200':
+          description: OK
+      description: 店舗アカウントを認証する際に使用するエンドポイント
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                login_id:
+                  type: string
+                password:
+                  type: string
+              required:
+                - login_id
+                - password
   /api/v1/employees/search:
     get:
       summary: Your GET endpoint
@@ -149,6 +171,29 @@ paths:
           description: store_idを指定する
           required: true
     parameters: []
+  /api/v1/employees/login:
+    post:
+      summary: ''
+      operationId: post-api-v1-login
+      responses:
+        '200':
+          description: OK
+      description: 従業員アカウントの認証をする場合に使用するエンドポイント
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                login_id:
+                  type: string
+                password:
+                  type: string
+              required:
+                - login_id
+                - password
+    parameters: []
   /api/v1/messages:
     post:
       summary: ''
@@ -201,6 +246,35 @@ paths:
         - messages
       description: メッセージを投稿する
     parameters: []
+    get:
+      summary: ''
+      operationId: get-api-v1-messages
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        message:
+                          type: string
+                        created_at:
+                          type: string
+      description: 店舗一覧を返すエンドポイント
+      parameters:
+        - schema:
+            type: number
+          in: query
+          name: employee_id
+          description: 従業員IDを指定する。これがある場合は、従業員IDに紐付いたメッセージのみを返す。
 components:
   schemas: {}
   securitySchemes: {}
