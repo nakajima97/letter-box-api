@@ -213,6 +213,8 @@ paths:
               schema:
                 type: object
                 properties:
+                  message:
+                    type: string
                   data:
                     type: array
                     items:
@@ -224,6 +226,15 @@ paths:
                           type: string
                         created_at:
                           type: string
+                required:
+                  - message
+              examples:
+                example-1:
+                  value:
+                    data:
+                      - id: 0
+                        message: string
+                        created_at: string
       description: 店舗一覧を返すエンドポイント
       parameters:
         - schema:
