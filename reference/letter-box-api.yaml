@@ -9,7 +9,8 @@ paths:
   /api/v1/stores:
     get:
       summary: Your GET endpoint
-      tags: []
+      tags:
+        - stores
       responses:
         '200':
           description: OK
@@ -27,7 +28,6 @@ paths:
                           type: integer
                         name:
                           type: string
-              examples: {}
       operationId: get-api-v1-stores
       parameters:
         - schema:
@@ -228,13 +228,6 @@ paths:
                           type: string
                 required:
                   - message
-              examples:
-                example-1:
-                  value:
-                    data:
-                      - id: 0
-                        message: string
-                        created_at: string
       description: 店舗一覧を返すエンドポイント
       parameters:
         - schema:
@@ -242,6 +235,8 @@ paths:
           in: query
           name: employee_id
           description: 従業員IDを指定する。これがある場合は、従業員IDに紐付いたメッセージのみを返す。
+      tags:
+        - messages
   /api/v1/login/employees:
     post:
       summary: ''
@@ -264,6 +259,8 @@ paths:
               required:
                 - login_id
                 - password
+      tags:
+        - login
     parameters: []
   /api/v1/login/stores:
     post:
@@ -286,6 +283,8 @@ paths:
               required:
                 - login_id
                 - password
+      tags:
+        - login
     parameters: []
 components:
   schemas: {}
@@ -293,5 +292,6 @@ components:
   responses: {}
 tags:
   - name: employees
+  - name: login
   - name: messages
   - name: stores
