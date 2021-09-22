@@ -18,7 +18,7 @@ https://github.com/yudai-nakajima/letter-box-frontend-client
 
 ### 管理画面フロントエンド
 
-従業員がメッセージを確認するための画面
+従業員がメッセージを確認するための画面  
 https://github.com/yudai-nakajima/letter-box-frontend-management/blob/main/README.md
 
 ### バックエンド
@@ -28,7 +28,7 @@ Letter Box のバックエンド
 https://github.com/yudai-nakajima/letter-box-backend
 
 ### API 仕様書
-※本リポジトリ
+※本リポジトリ  
 https://github.com/yudai-nakajima/letter-box-api
 
 # 作成目的
