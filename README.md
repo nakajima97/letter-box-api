@@ -2,27 +2,38 @@
 
 ## Letter Box について
 
-顧客が気軽に従業員に感謝を伝えることができるアプリ。
+顧客が従業員に対して匿名でメッセージを送れるアプリ。  
+メッセージをやり取りする機能はないが  
+ログイン不要で誰に送るのかがURLに反映される。  
+そのため、QRコードを読み取るだけでメッセージを誰に送るのか指定できる。  
 
 ## Letter Box を構成する要素
 
-Letter Box は以下のリポジトリがある
+Letter Box は以下4つのリポジトリで構成される
 
 ### 客側フロントエンド
 
-顧客が感謝を伝える際に利用する画面  
+顧客がメッセージを伝える際に利用する画面  
 https://github.com/yudai-nakajima/letter-box-frontend-client
 
 ### 管理画面フロントエンド
 
-従業員が感謝を確認するための画面
-https://github.com/yudai-nakajima/letter-box-frontend-client
+従業員がメッセージを確認するための画面
+https://github.com/yudai-nakajima/letter-box-frontend-management/blob/main/README.md
 
 ### バックエンド
 
 Letter Box のバックエンド
 フロントエンドは客側・管理画面と分かれるが、バックエンドは 1 つのみ  
 https://github.com/yudai-nakajima/letter-box-backend
+
+### API 仕様書
+※本リポジトリ
+https://github.com/yudai-nakajima/letter-box-api
+
+# 作成目的
+店員に対して気軽にメッセージを送れるアプリがあったら
+感謝の気持ちとか伝えやすいよなと思ったため。
 
 ### API 仕様書
 ※本リポジトリ
